@@ -16,7 +16,9 @@
         <h1 class="text-4xl text-blue-500">Conexión<span class="text-black">-</span><span
                 class="text-amber-500">Mayor</span></h1>
 
-        <nav class="flex items-center gap-5">
+        <nav class="flex items-center gap-5 @auth
+            flex-col md:flex-row p-2 md:p-0
+        @endauth">
             @guest
                 <a href="{{ route('login') }}" class="text-xl hover:underline">Iniciar Sesión</a>
                 <a href="{{ route('register') }}" class="text-xl hover:underline">Crear Cuenta</a>
