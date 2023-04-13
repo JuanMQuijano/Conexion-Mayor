@@ -37,10 +37,14 @@ class PostController extends Controller
         $imagen_path = public_path('uploads') . '/' . $nombre_imagen;
         $imagen_servidor->save($imagen_path);
 
+        $url = Str::uuid();
+        $request->request->add(['url' => Str::slug($url)]);
+
         Post::create([
             'name' => $request->name,
             'description' => $request->description,
             'image' => $nombre_imagen,
+            'url' => $request->url,
             'user_id' => auth()->user()->id
         ]);
 
@@ -55,6 +59,7 @@ class PostController extends Controller
         ]);
     }
 
+    //Delete the Post
     public function destroy(Post $post)
     {
         $this->authorize('delete', $post);

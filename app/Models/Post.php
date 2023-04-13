@@ -13,6 +13,7 @@ class Post extends Model
         'name',
         'description',
         'image',
+        'url',
         'user_id'
     ];
 

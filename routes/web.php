@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\auth\AuthController;
-use App\Http\Controllers\auth\RegisterController;
-use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PerfilController;
-use App\Http\Controllers\PostController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\auth\AuthController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +39,10 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 Route::get('/posts/create', [PostController::class, 'index'])->middleware('auth')->name('posts/create');
 Route::post('/posts/store', [PostController::class, 'store'])->middleware('auth')->name('posts/store');
 Route::delete('/posts/destroy/{post}', [PostController::class, 'destroy'])->middleware('auth')->name('posts/destroy');
-Route::get('/{user:username}/posts/{post}', [PostController::class, 'show'])->name('posts/show');
+Route::get('/{user:username}/{post:url}', [PostController::class, 'show'])->name('posts/show');
+
+//Like
+Route::post('/{user:username}/{post:url}', [LikeController::class, 'store'])->name('likes/store');
 
 
 //Perfil
