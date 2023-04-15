@@ -42,6 +42,11 @@
                 @enderror
             </div>
 
+            <div class="mt-2 text-center">
+                <input type="checkbox" name="remember"> <label class="text-gray-500  text-sm">Mantener mi sesión
+                    abierta</label>
+            </div>
+
 
             <button class="bg-blue-500 text-white mt-5 w-full p-2 rounded text-xl hover:bg-blue-600">Iniciar Sesión</button>
             <div class="w-full flex justify-center mt-2">
