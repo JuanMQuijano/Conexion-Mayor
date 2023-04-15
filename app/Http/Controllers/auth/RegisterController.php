@@ -34,7 +34,7 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
-
-        return redirect()->route('login')->with('mensaje', 'Cuenta Creada');
+        
+        return back()->with('mensaje', 'Cuenta Creada');
     }
 }

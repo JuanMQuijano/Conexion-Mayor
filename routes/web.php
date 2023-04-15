@@ -42,7 +42,7 @@ Route::delete('/posts/destroy/{post}', [PostController::class, 'destroy'])->midd
 Route::get('/{user:username}/{post:url}', [PostController::class, 'show'])->name('posts/show');
 
 //Like
-Route::post('/{user:username}/{post:url}', [LikeController::class, 'store'])->name('likes/store');
+// Route::post('/{user:username}/{post:url}', [LikeController::class, 'store'])->name('likes/store');
 
 
 //Perfil

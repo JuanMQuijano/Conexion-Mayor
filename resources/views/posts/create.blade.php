@@ -36,7 +36,7 @@
 
             <div class="flex justify-between my-2 gap-5">
                 <label for="image" class="font-bold text-lg w-1/6">Imagen</label>
-                <input type="file" name="image" id="image" class="flex-1">
+                <input type="file" name="image" id="image" class="flex-1" accept="image/*">
             </div>
 
             <input type="submit" value="Crear Publicación"

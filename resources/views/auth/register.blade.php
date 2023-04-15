@@ -5,10 +5,15 @@
 @endsection
 
 @section('contenido')
-    <div class="h-4/5 flex items-center justify-center my-20">
+    <div class="h-4/5 flex items-center justify-center my-10 lg:my-0">
         <form class="rounded shadow-lg shadow-black p-5 w-96" action="{{ route('register/store') }}" method="POST">
 
             @csrf
+
+            @if (session('mensaje'))
+                <p class="bg-green-500 text-white my-2 rounded-lg text-sm p-2 text-center uppercase">{{ session('mensaje') }}
+                </p>
+            @endif
 
             <h1 class="text-2xl text-center mt-5 text-blue-500">Conexión<span class="text-black">-</span><span
                     class="text-amber-500">Mayor</span></h1>

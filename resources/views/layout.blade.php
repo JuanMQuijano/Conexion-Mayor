@@ -13,12 +13,11 @@
 
 <body class="h-screen">
     <header class="flex flex-col justify-center items-center md:flex-row md:justify-between border shadow p-2">
-        <h1 class="text-4xl text-blue-500">Conexión<span class="text-black">-</span><span
-                class="text-amber-500">Mayor</span></h1>
+        <a href="{{ route('dashboard') }}" class="text-4xl text-blue-500">Conexión<span class="text-black">-</span><span
+                class="text-amber-500">Mayor</span></a>
 
         <nav class="flex items-center gap-5 @auth
-            flex-col md:flex-row p-2 md:p-0
-        @endauth">
+flex-col md:flex-row p-2 md:p-0 @endauth">
             @guest
                 <a href="{{ route('login') }}" class="text-xl hover:underline">Iniciar Sesión</a>
                 <a href="{{ route('register') }}" class="text-xl hover:underline">Crear Cuenta</a>

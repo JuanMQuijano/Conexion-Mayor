@@ -7,15 +7,17 @@
 @section('contenido')
     <div class="container mx-auto mt-10 flex items-center">
         <div class="w-2/4 flex flex-col items-center justify-center">
-            <img src="/uploads/{{ $post->image }}" alt="Imagen Publicacíon {{ $post->name }}" class="w-2/3 mx-auto">
+            <img src="/uploads/{{ $post->image }}" alt="Imagen Publicacíon {{ $post->name }}"
+                class="w-full mx-auto shadow-xl">
 
-            <div class="flex justify-around w-full">
+            <div class="flex justify-between w-full mt-5">
                 <a href="{{ route('perfil', $post->post_owner->username) }}"
                     class="font-bold">{{ $post->post_owner->username }}</a>
-                <p>💝 0</p>
+
+                <livewire:like-component :post="$post" />
             </div>
 
-            <div class="flex justify-around w-full mt-8">
+            <div class="flex flex-col w-full mx-auto mt-8">
                 <p>{{ $post->description }}</p>
                 <p class="font-bold">{{ $post->created_at->diffForHumans() }}</p>
             </div>
@@ -24,8 +26,8 @@
                 @if (auth()->user()->id === $post->post_owner->id)
                     <form action="{{ route('posts/destroy', $post) }}" class="mt-8" method="POST">
                         @method('DELETE')
-                        @csrf
 
+                        @csrf
 
                         <input type="submit" value="Eliminar Publicación"
                             class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold mt-4 cursor-pointer">
@@ -35,8 +37,10 @@
 
         </div>
 
-        <div>
-            Formulario de comentarios
+        <div class="md:w-1/2 p-5">
+            <div class="shadow bg-white p-5 mb-5">
+                <livewire:comentario-component :post="$post" />
+            </div>
         </div>
     </div>
 @endsection
