@@ -6,8 +6,16 @@
 
 @section('contenido')
     <div class="container mx-auto my-10">
-        <h1 class="font-bold text-lg uppercase">Publicaciones de {{ $user->username }}</h1>
+        <div>
+            <h1 class="font-bold text-lg uppercase">Publicaciones de {{ $user->username }}</h1>
 
+            @auth
+                @if (auth()->user()->id === $user->id)
+                    <a href="{{ route('update', $user->username) }}">Editar Perfil</a>
+                @endif
+            @endauth
+
+        </div>
         <div class="grid grid-cols-4 gap-8 mt-10">
 
             @forelse ($posts as $post)

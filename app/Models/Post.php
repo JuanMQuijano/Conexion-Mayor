@@ -15,6 +15,7 @@ class Post extends Model
     protected $fillable = [
         'name',
         'description',
+        'type',
         'image',
         'url',
         'user_id'
@@ -30,9 +31,9 @@ class Post extends Model
         return $this->hasMany(Like::class);
     }
 
-    public function is_liked(User $user)
+    public function is_liked()
     {
-        return $this->likes->contains('user_id', $user->id);
+        return $this->likes->contains('user_id', auth()->user());
     }
 
     public function comentarios()

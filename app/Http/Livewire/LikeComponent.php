@@ -13,7 +13,7 @@ class LikeComponent extends Component
     public function mount($post)
     {
         $this->likes = $post->likes->count();
-        $this->is_liked = $post->is_liked(auth()->user());
+        $this->is_liked = $post->is_liked();
     }
 
     public function like()

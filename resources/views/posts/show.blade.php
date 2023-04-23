@@ -5,7 +5,7 @@
 @endsection
 
 @section('contenido')
-    <div class="container mx-auto mt-10 flex items-center">
+    <div class="container mx-auto mt-10 flex flex-col md:flex-row items-center">
         <div class="w-2/4 flex flex-col items-center justify-center">
             <img src="/uploads/{{ $post->image }}" alt="Imagen Publicacíon {{ $post->name }}"
                 class="w-full mx-auto shadow-xl">
@@ -18,10 +18,17 @@
             </div>
 
             <div class="flex flex-col w-full mx-auto mt-8">
-                <p>{{ $post->description }}</p>
+                <div class="break-words">
+                    <p>{{ $post->description }}</p>
+                </div>
                 <p class="font-bold">{{ $post->created_at->diffForHumans() }}</p>
             </div>
 
+            @guest
+                <div class="mt-5">
+                    <p class="text-gray-500">Inicia Sesión para interactuar con esta publicación</p>
+                </div>
+            @endguest
             @auth
                 @if (auth()->user()->id === $post->post_owner->id)
                     <form action="{{ route('posts/destroy', $post) }}" class="mt-8" method="POST">

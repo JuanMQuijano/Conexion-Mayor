@@ -8,6 +8,7 @@ use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\PaginasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,10 +30,16 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register/s
 
 Route::get('/logout', [LogoutController::class, 'store'])->middleware('auth')->name('logout');
 
+Route::get('/update/{user:username}', [PerfilController::class, 'update'])->middleware('auth')->name('update');
+Route::post('/update/{user:username}', [PerfilController::class, 'store'])->middleware('auth')->name('update/store');
+
 
 //Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+//Páginas
+Route::get('/ofertas', [PaginasController::class, 'ofertas'])->name('ofertas');
+Route::get('/solicitudes', [PaginasController::class, 'demandas'])->name('solicitudes');
 
 
 //Post
@@ -40,9 +47,6 @@ Route::get('/posts/create', [PostController::class, 'index'])->middleware('auth'
 Route::post('/posts/store', [PostController::class, 'store'])->middleware('auth')->name('posts/store');
 Route::delete('/posts/destroy/{post}', [PostController::class, 'destroy'])->middleware('auth')->name('posts/destroy');
 Route::get('/{user:username}/{post:url}', [PostController::class, 'show'])->name('posts/show');
-
-//Like
-// Route::post('/{user:username}/{post:url}', [LikeController::class, 'store'])->name('likes/store');
 
 
 //Perfil

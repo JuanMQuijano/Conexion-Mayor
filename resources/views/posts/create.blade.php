@@ -9,7 +9,8 @@
 
         <h1 class="font-bold text-4xl text-center">Crear Publicación</h1>
 
-        <form action="{{ route('posts/store') }}" class="flex flex-col w-5/12 mx-auto mt-10" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('posts/store') }}" class="flex flex-col w-5/12 mx-auto mt-10" method="POST"
+            enctype="multipart/form-data">
             @csrf
 
 
@@ -25,13 +26,22 @@
             <div class="flex justify-between my-2 gap-5">
                 <label for="name" class="font-bold text-lg w-1/6">Título</label>
                 <input type="text" name="name" id="name" class="flex-1 border border-gray-300 rounded"
-                    placeholder="Título Publicación" value="{{old("name")}}">
+                    placeholder="Título Publicación" value="{{ old('name') }}">
             </div>
 
             <div class="flex my-2 gap-5">
                 <label for="description" class="font-bold text-lg w-1/6">Descripción</label>
                 <textarea name="description" id="description" class="flex-1 border border-gray-300 rounded h-40"
-                    placeholder="Descripción Publicación">{{old("description")}}</textarea>
+                    placeholder="Descripción Publicación">{{ old('description') }}</textarea>
+            </div>
+
+            <div class="flex my-2 gap-5">
+                <label for="type" class="font-bold text-lg w-1/6">Tipo de Publicación</label>
+                <select name="type" id="type" class="flex-1 border border-gray-300 rounded">
+                    <option value="oferta" selected>Oferta</option>
+                    <option value="demanda">Solicitud</option>
+                    <option value="otros">Otros</option>
+                </select>
             </div>
 
             <div class="flex justify-between my-2 gap-5">

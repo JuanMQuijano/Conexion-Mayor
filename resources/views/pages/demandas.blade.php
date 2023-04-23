@@ -1,12 +1,12 @@
 @extends('layout')
 
 @section('pagina')
-    Inicio
+    Solicitudes
 @endsection
 
 @section('contenido')
     <div class="container mx-auto my-10">
-        <h1 class="font-bold text-lg uppercase">Últimas Publicaciones</h1>
+        <h1 class="font-bold text-lg uppercase">Últimas Solicitudes</h1>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8 mt-10">
 
             @forelse ($posts as $post)

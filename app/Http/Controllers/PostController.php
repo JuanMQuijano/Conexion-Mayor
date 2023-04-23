@@ -20,7 +20,6 @@ class PostController extends Controller
     //Save the post on the database
     public function store(Request $request)
     {
-
         $this->validate($request, [
             'name' => ['required', 'string'],
             'description' => ['required', 'max:255'],
@@ -43,6 +42,7 @@ class PostController extends Controller
         Post::create([
             'name' => $request->name,
             'description' => $request->description,
+            'type' => $request->type,
             'image' => $nombre_imagen,
             'url' => $request->url,
             'user_id' => auth()->user()->id
