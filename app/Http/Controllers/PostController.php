@@ -35,7 +35,7 @@ class PostController extends Controller
 
         $imagen_path = public_path('uploads') . '/' . $nombre_imagen;
         if (!file_exists($imagen_path)) {
-            mkdir($imagen_path, 775, true);
+            mkdir($imagen_path, 0775, true);
         }
         $imagen_servidor->save($imagen_path);
 
