@@ -36,6 +36,10 @@ class PostController extends Controller
         $imagen_path = public_path('uploads') . '/' . $nombre_imagen;
         $imagen_servidor->save($imagen_path);
 
+        if (!file_exists($imagen_path)) {
+            mkdir($imagen_path, 0777, true);
+        }
+
         $url = Str::uuid();
         $request->request->add(['url' => Str::slug($url)]);
 
