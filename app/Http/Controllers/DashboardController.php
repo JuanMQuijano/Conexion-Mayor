@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    //
+    //Renderiza la interfaz de index paginando la publicación en 8 elementos
     public function index()
     {
         $posts = Post::simplePaginate(8);

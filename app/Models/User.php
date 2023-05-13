@@ -17,6 +17,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    //Atributos de la clase
     protected $fillable = [
         'name',
         'username',
@@ -43,6 +45,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    //Trae todas las publicaciones relacionadas con el id del usuario
     public function posts()
     {
         return $this->hasMany(Post::class);

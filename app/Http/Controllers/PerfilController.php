@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class PerfilController extends Controller
 {
-    //
+    //Muestra el perfil del usuario, seleccionando sus publicaciones
     public function index(User $user)
     {
         return view('profile.index', [
@@ -18,6 +18,7 @@ class PerfilController extends Controller
         ]);
     }
 
+    //Valida su el usuaroi autenticado es igual al id del perfil, y renderiza la vista de update
     public function update(User $user)
     {
         if ($user->id !== auth()->user()->id) {
@@ -29,6 +30,7 @@ class PerfilController extends Controller
         ]);
     }
 
+    //Almacena en el servidor el request enviado por el usuario
     public function store(Request $request)
     {
         $request->request->add(['username' => Str::slug($request->username)]);

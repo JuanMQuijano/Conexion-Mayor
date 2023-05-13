@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LogoutController extends Controller
 {
-    //
+    //Finaliza la sesión y redirecciona al usuario al login
     public function store()
     {
         Auth::logout();

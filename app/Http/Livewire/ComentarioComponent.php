@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Comentario;
 
+//Creamos un controlador e inicilizamos las variables que vamos a usar
 class ComentarioComponent extends Component
 {
     public $post;
@@ -16,6 +17,7 @@ class ComentarioComponent extends Component
         $this->comentarios = $post->comentarios;
     }
 
+    //Creamos una función para agregar comentarios a la publicación
     public function comment()
     {
         // Validar
@@ -34,7 +36,7 @@ class ComentarioComponent extends Component
         $this->reset('comentario');
     }
 
-
+    //Renderizamos el componente
     public function render()
     {
         return view('livewire.comentario-component');

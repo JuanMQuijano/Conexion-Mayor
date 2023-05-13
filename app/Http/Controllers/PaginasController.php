@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PaginasController extends Controller
 {
-    //
+    //Renderiza las publicaciones que tengan el tipo oferta
     public function ofertas()
     {
         $posts = Post::where('type', 'oferta')->simplePaginate(8);
@@ -17,6 +17,7 @@ class PaginasController extends Controller
         ]);
     }
 
+    //Renderiza las publicaciones que tengan el tipo demanda
     public function demandas()
     {
         $posts = Post::where('type', 'demanda')->simplePaginate(8);

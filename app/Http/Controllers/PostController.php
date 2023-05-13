@@ -11,13 +11,13 @@ use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
 {
-    //Form to create a Post
+    //Muestra el formulario para crear un post
     public function index()
     {
         return view('posts.create');
     }
 
-    //Save the post on the database
+    //Almacena el post en el servidor
     public function store(Request $request)
     {
         $this->validate($request, [
